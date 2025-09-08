@@ -15,13 +15,13 @@ class EmployeeResourceTest {
                 .then()
                 .statusCode(200)
                 .body(is("[ " +
-                        "\"Dale Miller\"" +
+                        "\"Dale Miller\"," +
                         "\"George Smith\"," +
                         "\"James Doyle\"," +
                         "\"Joanne Olsen\"," +
                         "\"Michael Smith\"," +
                         "\"Peter Goeking\"," +
-                        "\"Samuel Palmisano\"," +
+                        "\"Samuel Palmisano\"" +
                         " ]"));
     }
 }

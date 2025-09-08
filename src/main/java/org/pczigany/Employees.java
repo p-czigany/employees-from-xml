@@ -1,5 +1,9 @@
 package org.pczigany;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
 public interface Employees {
-    Iterable<Employee> iterate();
+    List<Employee> getEmployees() throws IOException;
 }

@@ -15,6 +15,7 @@
         <quarkus.platform.version>3.26.1</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.3</surefire-plugin.version>
+        <jcabi-xml.version>0.35.0</jcabi-xml.version>
     </properties>
 
     <dependencyManagement>
@@ -47,6 +48,11 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jcabi</groupId>
+            <artifactId>jcabi-xml</artifactId>
+            <version>${jcabi-xml.version}</version>
         </dependency>
     </dependencies>
 
