@@ -1,6 +1,8 @@
 package org.pczigany;
 
+import java.util.List;
+
 public interface Employee {
     String name();
-    String department();
+    List<String> departments();
 }
