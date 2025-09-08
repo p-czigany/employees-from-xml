@@ -1,4 +1,4 @@
-package org.acme;
+package org.pczigany;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
