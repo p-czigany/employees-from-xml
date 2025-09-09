@@ -15,6 +15,6 @@ public class CachedXmlName implements Name {
         if (this.text == null) {
             this.text = this.employeeNode.xpath("name/text()").get(0);
         }
-        return "";
+        return this.text;
     }
 }

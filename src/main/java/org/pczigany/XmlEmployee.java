@@ -26,4 +26,9 @@ public class XmlEmployee implements Employee {
     public List<String> getDepartments() {
         return this.departments.stream().toList();
     }
+
+    @Override
+    public String toString() {
+        return "\"" + this.name.text() + "\"";
+    }
 }

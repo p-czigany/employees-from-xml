@@ -32,13 +32,7 @@ public class DefaultEmployees implements Employees {
         }
         final XML xml = new XMLDocument(xmlStream);
         final List<XML> employeeNodes = xml.nodes("//employee");
-
-        final List<Employee> employees = new ArrayList<>();
-        for (final XML employeeNode : employeeNodes) {
-            final Employee employee = new XmlEmployee(employeeNode);
-            employees.add(employee);
-        }
-        return employees;
+        return new ArrayList<>(employeeNodes.stream().map(XmlEmployee::new).toList());
     }
 
     public void setEmployees(final List<Employee> employees) {
