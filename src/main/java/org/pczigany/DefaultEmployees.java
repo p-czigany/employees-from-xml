@@ -1,6 +1,5 @@
 package org.pczigany;
 
-import com.jcabi.xml.XML;
 import com.jcabi.xml.XMLDocument;
 
 import java.io.FileNotFoundException;
@@ -9,7 +8,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class DefaultEmployees implements Employees {
     private List<Employee> cache;
@@ -30,9 +28,10 @@ public class DefaultEmployees implements Employees {
                     "employee.xml not found in resources folder"
             );
         }
-        final XML xml = new XMLDocument(xmlStream);
-        final List<XML> employeeNodes = xml.nodes("//employee");
-        return new ArrayList<>(employeeNodes.stream().map(XmlEmployee::new).toList());
+        return new ArrayList<>(
+                new XMLDocument(xmlStream).nodes("//employee").stream()
+                        .map(XmlEmployee::new).toList()
+        );
     }
 
     public void setEmployees(final List<Employee> employees) {

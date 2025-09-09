@@ -13,8 +13,8 @@ public class EmployeeResource {
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     public String names() throws IOException {
-        final DefaultEmployees defaultEmployees = new DefaultEmployees();
-        defaultEmployees.getEmployees();
-        return new DefaultJsonEmployees(defaultEmployees).jsonEmployeeNames();
+        final JsonEmployees jsonEmployees = new DefaultJsonEmployees(new DefaultEmployees());
+        jsonEmployees.getEmployees();
+        return jsonEmployees.jsonEmployeeNames();
     }
 }
