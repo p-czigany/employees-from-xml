@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class DefaultEmployees implements Employees {
+public class XmlEmployees implements Employees {
     private List<Employee> cache;
 
     @Override
@@ -43,7 +43,7 @@ public class DefaultEmployees implements Employees {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final DefaultEmployees that = (DefaultEmployees) o;
+        final XmlEmployees that = (XmlEmployees) o;
         return Objects.equals(this.cache, that.cache);
     }
 
