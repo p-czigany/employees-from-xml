@@ -10,17 +10,17 @@ public class DefaultJsonEmployee implements JsonEmployee {
     }
 
     @Override
-    public String jsonEmployeeName() {
-        return "\"" + this.employee.getName() + "\"";
-    }
-
-    @Override
     public String getName() {
-        return this.employee.getName();
+        return "\"" + this.employee.getName() + "\"";
     }
 
     @Override
     public List<String> getDepartments() {
         return this.employee.getDepartments();
+    }
+
+    @Override
+    public String jsonName() {
+        return "\"" + this.employee.getName() + "\"";
     }
 }

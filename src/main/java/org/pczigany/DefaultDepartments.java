@@ -5,155 +5,129 @@ import jakarta.annotation.Nonnull;
 
 import java.util.*;
 
-public class CachedXmlDepartments implements Departments {
-    private final XML employeeNode;
-    private List<String> elements;
+public class DefaultDepartments implements Departments {
+    private final List<String> elements;
 
-    public CachedXmlDepartments(final XML employeeNode) {
-        this.employeeNode = employeeNode;
+    public DefaultDepartments(final XML employeeNode) {
+        this(new XmlAsStringList(employeeNode));
     }
 
-    private void cache() {
-        if (elements == null) {
-            this.elements = this.employeeNode.xpath("department/text()");
-        }
+    public DefaultDepartments(final List<String> elements) {
+        this.elements = elements;
     }
 
     @Override
     public int size() {
-        this.cache();
         return this.elements.size();
     }
 
     @Override
     public boolean isEmpty() {
-        this.cache();
         return this.elements.isEmpty();
     }
 
     @Override
-    public boolean contains(Object o) {
-        this.cache();
+    public boolean contains(final Object o) {
         return this.elements.contains(o);
     }
 
     @Override
     public @Nonnull Iterator<String> iterator() {
-        this.cache();
         return this.elements.iterator();
     }
 
     @Override
     public @Nonnull Object[] toArray() {
-        this.cache();
         return this.elements.toArray();
     }
 
     @Override
-    public @Nonnull <T> T[] toArray(@Nonnull T[] a) {
-        this.cache();
+    public @Nonnull <T> T[] toArray(@Nonnull final T[] a) {
         return this.elements.toArray(a);
     }
 
     @Override
-    public boolean add(String s) {
-        this.cache();
+    public boolean add(final String s) {
         return this.elements.add(s);
     }
 
     @Override
-    public boolean remove(Object o) {
-        this.cache();
+    public boolean remove(final Object o) {
         return this.elements.remove(o);
     }
 
     @Override
-    public boolean containsAll(@Nonnull Collection<?> c) {
-        this.cache();
+    public boolean containsAll(@Nonnull final Collection<?> c) {
         return new HashSet<>(this.elements).containsAll(c);
     }
 
     @Override
-    public boolean addAll(@Nonnull Collection<? extends String> c) {
-        this.cache();
+    public boolean addAll(@Nonnull final Collection<? extends String> c) {
         return this.elements.addAll(c);
     }
 
     @Override
-    public boolean addAll(int index, @Nonnull Collection<? extends String> c) {
-        this.cache();
+    public boolean addAll(final int index, @Nonnull final Collection<? extends String> c) {
         return this.elements.addAll(index, c);
     }
 
     @Override
-    public boolean removeAll(@Nonnull Collection<?> c) {
-        this.cache();
+    public boolean removeAll(@Nonnull final Collection<?> c) {
         return this.elements.removeAll(c);
     }
 
     @Override
-    public boolean retainAll(@Nonnull Collection<?> c) {
-        this.cache();
+    public boolean retainAll(@Nonnull final Collection<?> c) {
         return this.elements.retainAll(c);
     }
 
     @Override
     public void clear() {
-        this.cache();
         this.elements.clear();
     }
 
     @Override
-    public String get(int index) {
-        this.cache();
+    public String get(final int index) {
         return this.elements.get(index);
     }
 
     @Override
-    public String set(int index, String element) {
-        this.cache();
+    public String set(final int index, final String element) {
         return this.elements.set(index, element);
     }
 
     @Override
-    public void add(int index, String element) {
-        this.cache();
+    public void add(final int index, final String element) {
         this.elements.add(index, element);
     }
 
     @Override
-    public String remove(int index) {
-        this.cache();
+    public String remove(final int index) {
         return this.elements.remove(index);
     }
 
     @Override
-    public int indexOf(Object o) {
-        this.cache();
+    public int indexOf(final Object o) {
         return this.elements.indexOf(o);
     }
 
     @Override
-    public int lastIndexOf(Object o) {
-        this.cache();
+    public int lastIndexOf(final Object o) {
         return this.elements.lastIndexOf(o);
     }
 
     @Override
     public @Nonnull ListIterator<String> listIterator() {
-        this.cache();
         return this.elements.listIterator();
     }
 
     @Override
-    public @Nonnull ListIterator<String> listIterator(int index) {
-        this.cache();
+    public @Nonnull ListIterator<String> listIterator(final int index) {
         return this.elements.listIterator(index);
     }
 
     @Override
-    public @Nonnull List<String> subList(int fromIndex, int toIndex) {
-        this.cache();
+    public @Nonnull List<String> subList(final int fromIndex, final int toIndex) {
         return this.elements.subList(fromIndex, toIndex);
     }
 }
