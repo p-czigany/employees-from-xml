@@ -52,12 +52,4 @@ public class DefaultEmployees implements Employees {
     public int hashCode() {
         return Objects.hashCode(this.cache);
     }
-
-    @Override
-    public String toString() {
-        return "["
-                + this.cache.stream().map(Object::toString)
-                .collect(Collectors.joining(","))
-                + "]";
-    }
 }

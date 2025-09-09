@@ -15,6 +15,6 @@ public class EmployeeResource {
     public String names() throws IOException {
         final DefaultEmployees defaultEmployees = new DefaultEmployees();
         defaultEmployees.getEmployees();
-        return defaultEmployees.toString();
+        return new DefaultJsonEmployees(defaultEmployees).jsonEmployeeNames();
     }
 }
