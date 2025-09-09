@@ -9,16 +9,17 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class DefaultEmployees implements Employees {
-    private List<Employee> employees;
+    private List<Employee> cache;
 
     @Override
     public List<Employee> getEmployees() throws IOException {
-        if (this.employees == null) {
-            this.employees = this.xmlEmployees();
+        if (this.cache == null) {
+            this.cache = this.xmlEmployees();
         }
-        return this.employees;
+        return this.cache;
     }
 
     private List<Employee> xmlEmployees() throws IOException {
@@ -34,21 +35,14 @@ public class DefaultEmployees implements Employees {
 
         final List<Employee> employees = new ArrayList<>();
         for (final XML employeeNode : employeeNodes) {
-            final Employee employee = this.parseEmployee(employeeNode);
+            final Employee employee = new XmlEmployee(employeeNode);
             employees.add(employee);
         }
         return employees;
     }
 
-    private Employee parseEmployee(final XML employeeNode) {
-        return new DefaultEmployee(
-                employeeNode.xpath("name/text()").get(0),
-                new ArrayList<>(employeeNode.xpath("department/text()"))
-        );
-    }
-
     public void setEmployees(final List<Employee> employees) {
-        this.employees = employees;
+        this.cache = employees;
     }
 
     @Override
@@ -57,18 +51,19 @@ public class DefaultEmployees implements Employees {
             return false;
         }
         final DefaultEmployees that = (DefaultEmployees) o;
-        return Objects.equals(this.employees, that.employees);
+        return Objects.equals(this.cache, that.cache);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.employees);
+        return Objects.hashCode(this.cache);
     }
 
     @Override
     public String toString() {
-        return "DefaultEmployees{" +
-                "employees=" + employees +
-                '}';
+        return "["
+                + this.cache.stream().map(Object::toString)
+                .collect(Collectors.joining(","))
+                + "]";
     }
 }
