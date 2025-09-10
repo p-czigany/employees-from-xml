@@ -9,7 +9,7 @@ public class XmlEmployee implements Employee {
     private final Departments departments;
 
     public XmlEmployee(final XML employeeNode) {
-        this(new CachedXmlName(employeeNode), new DefaultDepartments(employeeNode));
+        this(new DefaultName(employeeNode), new DefaultDepartments(employeeNode));
     }
 
     public XmlEmployee(final Name name, final Departments departments) {
