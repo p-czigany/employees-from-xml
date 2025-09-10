@@ -4,15 +4,15 @@ import com.jcabi.xml.XML;
 
 import java.util.List;
 
-public class XmlEmployee implements Employee {
+public class DefaultEmployee implements Employee {
     private final Name name;
     private final Departments departments;
 
-    public XmlEmployee(final XML employeeNode) {
+    public DefaultEmployee(final XML employeeNode) {
         this(new DefaultName(employeeNode), new DefaultDepartments(employeeNode));
     }
 
-    public XmlEmployee(final Name name, final Departments departments) {
+    public DefaultEmployee(final Name name, final Departments departments) {
         this.name = name;
         this.departments = departments;
     }

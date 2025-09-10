@@ -25,7 +25,7 @@ public class PathAsEmployeeList implements List<Employee> {
             }
             return new ArrayList<>(
                     new XMLDocument(xmlStream).nodes("//employee").stream()
-                            .map(XmlEmployee::new).toList()
+                            .map(DefaultEmployee::new).toList()
             );
         } catch (final IOException e) {
             return Collections.emptyList();
