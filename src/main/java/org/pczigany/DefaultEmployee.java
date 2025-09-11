@@ -3,6 +3,7 @@ package org.pczigany;
 import com.jcabi.xml.XML;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DefaultEmployee implements Employee {
     private final Name name;
@@ -25,5 +26,20 @@ public class DefaultEmployee implements Employee {
     @Override
     public List<String> getDepartments() {
         return this.departments.stream().toList();
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        final DefaultEmployee that = (DefaultEmployee) o;
+        return Objects.equals(this.name, that.name)
+                && Objects.equals(this.departments, that.departments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name, this.departments);
     }
 }

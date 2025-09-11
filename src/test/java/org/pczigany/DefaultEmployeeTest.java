@@ -11,7 +11,12 @@ class DefaultEmployeeTest {
         MatcherAssert.assertThat(
                 "name is not correct",
                 new DefaultEmployee(new XMLDocument(
-                        "<root><name>John Doe</name><department>it</department></root>"
+                        """
+                                <employee>
+                                    <name>John Doe</name>
+                                    <department>it</department>
+                                </employee>
+                                """
                 )).getName(),
                 Matchers.is(Matchers.equalTo("John Doe"))
         );
