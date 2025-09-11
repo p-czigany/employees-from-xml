@@ -11,6 +11,6 @@ public class DefaultName implements Name {
 
     @Override
     public String text() {
-        return this.employeeNode.xpath("name/text()").get(0);
+        return this.employeeNode.xpath("//name/text()").get(0);
     }
 }
