@@ -6,129 +6,135 @@ import jakarta.annotation.Nonnull;
 import java.util.*;
 
 public class DefaultDepartments implements Departments {
-    private final List<String> elements;
+    private final List<String> departments;
 
     public DefaultDepartments(final XML employeeNode) {
         this(new XmlAsDepartmentStringList(employeeNode));
     }
 
-    public DefaultDepartments(final List<String> elements) {
-        this.elements = elements;
+    public DefaultDepartments(final List<String> departments) {
+        this.departments = departments;
     }
 
     @Override
     public int size() {
-        return this.elements.size();
+        return this.departments.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return this.elements.isEmpty();
+        return this.departments.isEmpty();
     }
 
     @Override
     public boolean contains(final Object o) {
-        return this.elements.contains(o);
+        return this.departments.contains(o);
     }
 
     @Override
     public @Nonnull Iterator<String> iterator() {
-        return this.elements.iterator();
+        return this.departments.iterator();
     }
 
     @Override
     public @Nonnull Object[] toArray() {
-        return this.elements.toArray();
+        return this.departments.toArray();
     }
 
     @Override
     public @Nonnull <T> T[] toArray(@Nonnull final T[] a) {
-        return this.elements.toArray(a);
+        return this.departments.toArray(a);
     }
 
     @Override
     public boolean add(final String s) {
-        return this.elements.add(s);
+        return this.departments.add(s);
     }
 
     @Override
     public boolean remove(final Object o) {
-        return this.elements.remove(o);
+        return this.departments.remove(o);
     }
 
     @Override
     public boolean containsAll(@Nonnull final Collection<?> c) {
-        return new HashSet<>(this.elements).containsAll(c);
+        return new HashSet<>(this.departments).containsAll(c);
     }
 
     @Override
     public boolean addAll(@Nonnull final Collection<? extends String> c) {
-        return this.elements.addAll(c);
+        return this.departments.addAll(c);
     }
 
     @Override
-    public boolean addAll(final int index, @Nonnull final Collection<? extends String> c) {
-        return this.elements.addAll(index, c);
+    public boolean addAll(
+            final int index,
+            @Nonnull final Collection<? extends String> c
+    ) {
+        return this.departments.addAll(index, c);
     }
 
     @Override
     public boolean removeAll(@Nonnull final Collection<?> c) {
-        return this.elements.removeAll(c);
+        return this.departments.removeAll(c);
     }
 
     @Override
     public boolean retainAll(@Nonnull final Collection<?> c) {
-        return this.elements.retainAll(c);
+        return this.departments.retainAll(c);
     }
 
     @Override
     public void clear() {
-        this.elements.clear();
+        this.departments.clear();
     }
 
     @Override
     public String get(final int index) {
-        return this.elements.get(index);
+        return this.departments.get(index);
     }
 
     @Override
     public String set(final int index, final String element) {
-        return this.elements.set(index, element);
+        return this.departments.set(index, element);
     }
 
     @Override
     public void add(final int index, final String element) {
-        this.elements.add(index, element);
+        this.departments.add(index, element);
     }
 
     @Override
     public String remove(final int index) {
-        return this.elements.remove(index);
+        return this.departments.remove(index);
     }
 
     @Override
     public int indexOf(final Object o) {
-        return this.elements.indexOf(o);
+        return this.departments.indexOf(o);
     }
 
     @Override
     public int lastIndexOf(final Object o) {
-        return this.elements.lastIndexOf(o);
+        return this.departments.lastIndexOf(o);
     }
 
     @Override
     public @Nonnull ListIterator<String> listIterator() {
-        return this.elements.listIterator();
+        return this.departments.listIterator();
     }
 
     @Override
     public @Nonnull ListIterator<String> listIterator(final int index) {
-        return this.elements.listIterator(index);
+        return this.departments.listIterator(index);
     }
 
     @Override
-    public @Nonnull List<String> subList(final int fromIndex, final int toIndex) {
-        return this.elements.subList(fromIndex, toIndex);
+    public @Nonnull List<String> subList(
+            final int fromIndex,
+            final int toIndex
+    ) {
+        return this.departments.subList(fromIndex, toIndex);
     }
 
     @Override
@@ -137,11 +143,11 @@ public class DefaultDepartments implements Departments {
             return false;
         }
         final DefaultDepartments strings = (DefaultDepartments) o;
-        return Objects.equals(this.elements, strings.elements);
+        return Objects.equals(this.departments, strings.departments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(elements);
+        return Objects.hashCode(departments);
     }
 }

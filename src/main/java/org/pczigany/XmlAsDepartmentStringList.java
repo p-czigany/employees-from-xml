@@ -134,9 +134,11 @@ public class XmlAsDepartmentStringList implements List<String> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        XmlAsDepartmentStringList strings = (XmlAsDepartmentStringList) o;
+    public boolean equals(final Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final XmlAsDepartmentStringList strings = (XmlAsDepartmentStringList) o;
         return Objects.equals(this.stringList(), strings.stringList());
     }
 

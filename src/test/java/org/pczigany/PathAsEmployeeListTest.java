@@ -26,8 +26,8 @@ class PathAsEmployeeListTest {
                         new DefaultEmployee(new XMLDocument(
                                 """
                                         <employee>
-                                        <name>George Smith</name>
-                                        <department>finance</department>
+                                            <name>George Smith</name>
+                                            <department>finance</department>
                                         </employee>"""
                         ))
                 ),

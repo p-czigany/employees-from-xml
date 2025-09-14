@@ -63,4 +63,41 @@ class XmlAsDepartmentStringListTest {
     void containsAll() {
 
     }
+
+    @Test
+    void equals() {
+        MatcherAssert.assertThat(
+                new XmlAsDepartmentStringList(new XMLDocument(
+                        """
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <list>
+                                <employee>
+                                <name>George Smith</name>
+                                <department>finance</department>
+                                </employee>
+                                <employee>
+                                <name>Michael Smith</name>
+                                <department>it</department>
+                                <department>finance</department>
+                                </employee>
+                                </list>"""
+                )).equals(
+                        new XmlAsDepartmentStringList(new XMLDocument(
+                                """
+                                        <list>
+                                        <employee>
+                                        <name>George Smith</name>
+                                        <department>finance</department>
+                                        </employee>
+                                        <employee>
+                                        <name>Michael Smith</name>
+                                        <department>it</department>
+                                        <department>finance</department>
+                                        </employee>
+                                        </list>"""
+                        ))
+                ),
+                Matchers.is(true)
+        );
+    }
 }
