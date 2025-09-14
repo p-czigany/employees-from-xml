@@ -9,7 +9,7 @@ public class DefaultDepartments implements Departments {
     private final List<String> elements;
 
     public DefaultDepartments(final XML employeeNode) {
-        this(new XmlAsStringList(employeeNode));
+        this(new XmlAsDepartmentStringList(employeeNode));
     }
 
     public DefaultDepartments(final List<String> elements) {

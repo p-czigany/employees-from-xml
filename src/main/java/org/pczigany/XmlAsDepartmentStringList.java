@@ -5,15 +5,17 @@ import jakarta.annotation.Nonnull;
 
 import java.util.*;
 
-public class XmlAsStringList implements List<String> {
+public class XmlAsDepartmentStringList implements List<String> {
+    private static final String XPATH_OF_DEPARTMENT_TAG_TEXT =
+            "//department/text()";
     private final XML source;
 
-    public XmlAsStringList(final XML source) {
+    public XmlAsDepartmentStringList(final XML source) {
         this.source = source;
     }
 
     private List<String> stringList() {
-        return this.source.xpath("department/text()");
+        return this.source.xpath(XPATH_OF_DEPARTMENT_TAG_TEXT);
     }
 
     @Override
@@ -134,12 +136,12 @@ public class XmlAsStringList implements List<String> {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        XmlAsStringList strings = (XmlAsStringList) o;
-        return Objects.equals(source, strings.source);
+        XmlAsDepartmentStringList strings = (XmlAsDepartmentStringList) o;
+        return Objects.equals(this.stringList(), strings.stringList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(source);
+        return Objects.hashCode(this.stringList());
     }
 }

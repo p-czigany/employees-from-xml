@@ -5,7 +5,7 @@ import com.jcabi.xml.XML;
 import java.util.Objects;
 
 public class DefaultName implements Name {
-    private static final String TEXT_OF_NAME_TAG = "//name/text()";
+    private static final String XPATH_OF_NAME_TAG_TEXT = "//name/text()";
     private final XML employeeNode;
 
     public DefaultName(final XML employeeNode) {
@@ -14,7 +14,7 @@ public class DefaultName implements Name {
 
     @Override
     public String text() {
-        return this.employeeNode.xpath(TEXT_OF_NAME_TAG).get(0);
+        return this.employeeNode.xpath(XPATH_OF_NAME_TAG_TEXT).get(0);
     }
 
     @Override

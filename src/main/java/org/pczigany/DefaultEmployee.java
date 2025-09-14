@@ -2,7 +2,6 @@ package org.pczigany;
 
 import com.jcabi.xml.XML;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,10 +10,9 @@ public class DefaultEmployee implements Employee {
     private final Departments departments;
 
     public DefaultEmployee(final XML employeeNode) {
-//        this(new DefaultName(employeeNode), new DefaultDepartments(employeeNode));
         this(
                 new DefaultName(employeeNode),
-                new DefaultDepartments(Collections.emptyList())
+                new DefaultDepartments(employeeNode)
         );
     }
 
