@@ -9,7 +9,7 @@ public interface Employee {
     /**
      * @return the name as a String, e.g. Johann Schmidt
      */
-    String getName();
+    String name();
 
     List<String> getDepartments();
 }

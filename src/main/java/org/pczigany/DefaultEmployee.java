@@ -19,7 +19,7 @@ public class DefaultEmployee implements Employee {
     }
 
     @Override
-    public String getName() {
+    public String name() {
         return this.name.text();
     }
 
