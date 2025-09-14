@@ -11,5 +11,5 @@ public interface Employee {
      */
     String name();
 
-    List<String> getDepartments();
+    List<String> departments();
 }
