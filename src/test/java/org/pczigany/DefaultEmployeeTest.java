@@ -27,8 +27,10 @@ class DefaultEmployeeTest {
     @Test
     void nameMethodCallsNameObject() {
         final FakeName fakeName = new FakeName();
-        new DefaultEmployee(fakeName, new DefaultDepartments(Collections.emptyList()))
-                .name();
+        new DefaultEmployee(
+                fakeName,
+                new DefaultDepartments(Collections.emptyList())
+        ).name();
         MatcherAssert.assertThat(
                 "did not call the neccessary service",
                 fakeName.getNumberOfTextCalls(),
@@ -45,6 +47,34 @@ class DefaultEmployeeTest {
                         new DefaultDepartments(Collections.emptyList())
                 ).name(),
                 Matchers.is(Matchers.equalTo("Fake Name"))
+        );
+    }
+
+    @Test
+    void equals() {
+        MatcherAssert.assertThat(
+                "equals method is not correct",
+                new DefaultEmployee(new XMLDocument(
+                        """
+                                <employee>
+                                    <name>George Smith</name>
+                                    <department>finance</department>
+                                </employee>
+                                """
+                )).equals(
+                        new DefaultEmployee(
+                                new DefaultName(new XMLDocument(
+                                        """
+                                                <employee>
+                                                    <name>George Smith</name>
+                                                    <department>finance</department>
+                                                </employee>
+                                                """
+                                )),
+                                new DefaultDepartments(Collections.emptyList())
+                        )
+                ),
+                Matchers.is(true)
         );
     }
 }

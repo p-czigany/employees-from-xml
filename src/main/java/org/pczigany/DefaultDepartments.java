@@ -130,4 +130,18 @@ public class DefaultDepartments implements Departments {
     public @Nonnull List<String> subList(final int fromIndex, final int toIndex) {
         return this.elements.subList(fromIndex, toIndex);
     }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        final DefaultDepartments strings = (DefaultDepartments) o;
+        return Objects.equals(this.elements, strings.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(elements);
+    }
 }

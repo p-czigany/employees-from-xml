@@ -130,4 +130,16 @@ public class XmlAsStringList implements List<String> {
     public @Nonnull List<String> subList(final int fromIndex, final int toIndex) {
         return this.stringList().subList(fromIndex, toIndex);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        XmlAsStringList strings = (XmlAsStringList) o;
+        return Objects.equals(source, strings.source);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(source);
+    }
 }

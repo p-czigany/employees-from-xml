@@ -10,22 +10,23 @@ import java.util.*;
 
 public class PathAsEmployeeList implements List<Employee> {
     private final String source;
+
     public PathAsEmployeeList(final String path) {
         this.source = path;
     }
 
     private List<Employee> employeeList() {
         final InputStream xmlStream =
-                getClass().getClassLoader().getResourceAsStream(this.source);
+                this.getClass().getClassLoader().getResourceAsStream(this.source);
         try {
             if (xmlStream == null) {
                 throw new FileNotFoundException(
-                        "employee.xml not found in resources folder"
+                        this.source + " not found in resources folder"
                 );
             }
             return new ArrayList<>(
-                    new XMLDocument(xmlStream).nodes("//employee").stream()
-                            .map(DefaultEmployee::new).toList()
+                    new XMLDocument(xmlStream).nodes("//employee")
+                            .stream().map(DefaultEmployee::new).toList()
             );
         } catch (final IOException e) {
             return Collections.emptyList();
@@ -145,5 +146,17 @@ public class PathAsEmployeeList implements List<Employee> {
     @Override
     public @Nonnull List<Employee> subList(final int fromIndex, final int toIndex) {
         return this.employeeList().subList(fromIndex, toIndex);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PathAsEmployeeList employees = (PathAsEmployeeList) o;
+        return Objects.equals(source, employees.source);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(source);
     }
 }

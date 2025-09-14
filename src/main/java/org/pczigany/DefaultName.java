@@ -19,15 +19,22 @@ public class DefaultName implements Name {
 
     @Override
     public boolean equals(final Object o) {
-        if (o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         final DefaultName that = (DefaultName) o;
-        return Objects.equals(this.employeeNode, that.employeeNode);
+        return Objects.equals(this.text(), that.text());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.employeeNode);
+        return Objects.hashCode(this.text());
+    }
+
+    @Override
+    public String toString() {
+        return "DefaultName{" +
+                "employeeNode=" + employeeNode +
+                '}';
     }
 }

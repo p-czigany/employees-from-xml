@@ -47,4 +47,12 @@ public class DefaultEmployee implements Employee {
     public int hashCode() {
         return Objects.hash(this.name, this.departments);
     }
+
+    @Override
+    public String toString() {
+        return "DefaultEmployee{" +
+                "name=" + name +
+                ", departments=" + departments +
+                '}';
+    }
 }
