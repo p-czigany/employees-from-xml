@@ -71,7 +71,14 @@ class DefaultEmployeeTest {
                                                 </employee>
                                                 """
                                 )),
-                                new DefaultDepartments(Collections.emptyList())
+                                new DefaultDepartments(new XMLDocument(
+                                        """
+                                                <employee>
+                                                    <name>George Smith</name>
+                                                    <department>finance</department>
+                                                </employee>
+                                                """
+                                ))
                         )
                 ),
                 Matchers.is(true)
