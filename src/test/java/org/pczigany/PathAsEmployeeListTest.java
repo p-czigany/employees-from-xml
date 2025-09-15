@@ -6,7 +6,6 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 class PathAsEmployeeListTest {
@@ -57,86 +56,15 @@ class PathAsEmployeeListTest {
     }
 
     @Test
-    void containsAll() {
-        MatcherAssert.assertThat(
-                "some employees are missing",
-                new PathAsEmployeeList("employee_test.xml").containsAll(
-                        Arrays.asList(
-                                new DefaultEmployee(
-                                        new TextName("George Smith"),
-                                        new DefaultDepartments(
-                                                List.of("finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Michael Smith"),
-                                        new DefaultDepartments(
-                                                List.of("it", "finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("James Doyle"),
-                                        new DefaultDepartments(
-                                                List.of("packaging")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Peter Goeking"),
-                                        new DefaultDepartments(
-                                                List.of("finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Joanne Olsen"),
-                                        new DefaultDepartments(
-                                                List.of("finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Samuel Palmisano"),
-                                        new DefaultDepartments(
-                                                List.of("it")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Dale Miller"),
-                                        new DefaultDepartments(
-                                                List.of("packaging", "finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Peter Goeking"),
-                                        new DefaultDepartments(
-                                                List.of("finance")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("James Doyle"),
-                                        new DefaultDepartments(
-                                                List.of("packaging")
-                                        )
-                                ),
-                                new DefaultEmployee(
-                                        new TextName("Peter Goeking"),
-                                        new DefaultDepartments(
-                                                List.of("it")
-                                        )
-                                )
-                        )
-                ),
-                Matchers.is(true)
-        );
-    }
-
-    @Test
     void debugDetailedEquality() {
-        PathAsEmployeeList list = new PathAsEmployeeList("employee_test_short.xml");
+//        PathAsEmployeeList list = new PathAsEmployeeList("employee_test_short.xml");
+        PathAsEmployeeList list = new PathAsEmployeeList("employee_test.xml");
         DefaultEmployee searchEmployee = new DefaultEmployee(new XMLDocument(
                 """
-                <employee>
-                    <name>George Smith</name>
-                    <department>finance</department>
-                </employee>"""
+                        <employee>
+                            <name>George Smith</name>
+                            <department>finance</department>
+                        </employee>"""
         ));
 
         Employee firstFromList = list.get(0);

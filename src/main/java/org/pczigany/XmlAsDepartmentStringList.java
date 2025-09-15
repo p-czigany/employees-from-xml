@@ -7,7 +7,7 @@ import java.util.*;
 
 public class XmlAsDepartmentStringList implements List<String> {
     private static final String XPATH_OF_DEPARTMENT_TAG_TEXT =
-            "//department/text()";
+            "/department/text()";
     private final XML source;
 
     public XmlAsDepartmentStringList(final XML source) {
