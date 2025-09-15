@@ -3,6 +3,7 @@ package org.pczigany;
 import com.jcabi.xml.XMLDocument;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -21,7 +22,7 @@ class PathAsEmployeeListTest {
     @Nested
     class Contains {
         @Test
-        void containsIsTrue() {
+        void trueWhenOnlyOneEmployeeInSourceFile() {
             MatcherAssert.assertThat(
                     "this employee is missing",
                     new PathAsEmployeeList("employee_test_short.xml").contains(
@@ -38,7 +39,7 @@ class PathAsEmployeeListTest {
         }
 
         @Test
-        void containsIsTrueWhen() {
+        void trueWhenMultipleEmployeesInSourceFile() {
             MatcherAssert.assertThat(
                     "this employee is missing",
                     new PathAsEmployeeList("employee_test.xml").contains(
